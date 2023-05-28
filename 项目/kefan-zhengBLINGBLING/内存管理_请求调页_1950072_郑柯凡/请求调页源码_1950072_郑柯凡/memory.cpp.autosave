@@ -1,0 +1,6 @@
+#include "memory.h"
+
+memory::memory()
+{
+    memset(memo,0,sizeof (memo));
+}

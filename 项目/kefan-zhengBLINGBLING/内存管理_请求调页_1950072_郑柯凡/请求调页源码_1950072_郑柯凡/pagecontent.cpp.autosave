@@ -1,0 +1,6 @@
+#include "pagecontent.h"
+
+PageContent::PageContent()
+{
+    memset(content,0,sizeof (content));
+}

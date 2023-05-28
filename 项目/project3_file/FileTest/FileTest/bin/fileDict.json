@@ -1,0 +1,272 @@
+{
+  "$id": "1",
+  "0": {
+    "$id": "2",
+    "symFCB": {
+      "$id": "3",
+      "fileName": null,
+      "fileType": "folder",
+      "fileId": 0,
+      "father": null,
+      "children": [
+        {
+          "$id": "4",
+          "fileName": "NEW FOLDER",
+          "fileType": "folder",
+          "fileId": 1,
+          "father": {
+            "$ref": "3"
+          },
+          "children": []
+        },
+        {
+          "$id": "5",
+          "fileName": "NEW FOLDER(1)",
+          "fileType": "folder",
+          "fileId": 2,
+          "father": {
+            "$ref": "3"
+          },
+          "children": [
+            {
+              "$id": "6",
+              "fileName": "NEW FOLDER",
+              "fileType": "folder",
+              "fileId": 5,
+              "father": {
+                "$ref": "5"
+              },
+              "children": []
+            },
+            {
+              "$id": "7",
+              "fileName": "NEW FOLDER(1)",
+              "fileType": "folder",
+              "fileId": 6,
+              "father": {
+                "$ref": "5"
+              },
+              "children": []
+            },
+            {
+              "$id": "8",
+              "fileName": "NEW TEXT.txt",
+              "fileType": "txt",
+              "fileId": 7,
+              "father": {
+                "$ref": "5"
+              },
+              "children": []
+            },
+            {
+              "$id": "9",
+              "fileName": "NEW TEXT(1).txt",
+              "fileType": "txt",
+              "fileId": 8,
+              "father": {
+                "$ref": "5"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "$id": "10",
+          "fileName": "NEW TEXT.txt",
+          "fileType": "txt",
+          "fileId": 3,
+          "father": {
+            "$ref": "3"
+          },
+          "children": []
+        },
+        {
+          "$id": "11",
+          "fileName": "NEW TEXT(1).txt",
+          "fileType": "txt",
+          "fileId": 4,
+          "father": {
+            "$ref": "3"
+          },
+          "children": []
+        }
+      ]
+    },
+    "basicFCB": {
+      "$id": "12",
+      "fileId": 0,
+      "name": null,
+      "type": "folder",
+      "size": "0",
+      "path": "\\",
+      "modifiedTime": "2023-05-28T14:37:15.4985657+08:00",
+      "indexTable": {
+        "$id": "13",
+        "dataIdxList": [],
+        "idxIdxList": []
+      }
+    }
+  },
+  "1": {
+    "$id": "14",
+    "symFCB": {
+      "$ref": "4"
+    },
+    "basicFCB": {
+      "$id": "15",
+      "fileId": 1,
+      "name": "NEW FOLDER",
+      "type": "folder",
+      "size": "0",
+      "path": "\\\\NEW FOLDER",
+      "modifiedTime": "2023-05-28T14:37:16.5920505+08:00",
+      "indexTable": {
+        "$id": "16",
+        "dataIdxList": [],
+        "idxIdxList": []
+      }
+    }
+  },
+  "2": {
+    "$id": "17",
+    "symFCB": {
+      "$ref": "5"
+    },
+    "basicFCB": {
+      "$id": "18",
+      "fileId": 2,
+      "name": "NEW FOLDER(1)",
+      "type": "folder",
+      "size": "0",
+      "path": "\\\\NEW FOLDER(1)",
+      "modifiedTime": "2023-05-28T14:37:16.8638449+08:00",
+      "indexTable": {
+        "$id": "19",
+        "dataIdxList": [],
+        "idxIdxList": []
+      }
+    }
+  },
+  "3": {
+    "$id": "20",
+    "symFCB": {
+      "$ref": "10"
+    },
+    "basicFCB": {
+      "$id": "21",
+      "fileId": 3,
+      "name": "NEW TEXT.txt",
+      "type": "txt",
+      "size": "0",
+      "path": "\\\\NEW TEXT.txt",
+      "modifiedTime": "2023-05-28T14:37:17.6900124+08:00",
+      "indexTable": {
+        "$id": "22",
+        "dataIdxList": [],
+        "idxIdxList": []
+      }
+    }
+  },
+  "4": {
+    "$id": "23",
+    "symFCB": {
+      "$ref": "11"
+    },
+    "basicFCB": {
+      "$id": "24",
+      "fileId": 4,
+      "name": "NEW TEXT(1).txt",
+      "type": "txt",
+      "size": "16B",
+      "path": "\\\\NEW TEXT(1).txt",
+      "modifiedTime": "2023-05-28T14:41:51.2804615+08:00",
+      "indexTable": {
+        "$id": "25",
+        "dataIdxList": [
+          0
+        ],
+        "idxIdxList": []
+      }
+    }
+  },
+  "5": {
+    "$id": "26",
+    "symFCB": {
+      "$ref": "6"
+    },
+    "basicFCB": {
+      "$id": "27",
+      "fileId": 5,
+      "name": "NEW FOLDER",
+      "type": "folder",
+      "size": "0",
+      "path": "\\\\NEW FOLDER(1)\\NEW FOLDER",
+      "modifiedTime": "2023-05-28T14:37:21.2217244+08:00",
+      "indexTable": {
+        "$id": "28",
+        "dataIdxList": [],
+        "idxIdxList": []
+      }
+    }
+  },
+  "6": {
+    "$id": "29",
+    "symFCB": {
+      "$ref": "7"
+    },
+    "basicFCB": {
+      "$id": "30",
+      "fileId": 6,
+      "name": "NEW FOLDER(1)",
+      "type": "folder",
+      "size": "0",
+      "path": "\\\\NEW FOLDER(1)\\NEW FOLDER(1)",
+      "modifiedTime": "2023-05-28T14:37:21.3842949+08:00",
+      "indexTable": {
+        "$id": "31",
+        "dataIdxList": [],
+        "idxIdxList": []
+      }
+    }
+  },
+  "7": {
+    "$id": "32",
+    "symFCB": {
+      "$ref": "8"
+    },
+    "basicFCB": {
+      "$id": "33",
+      "fileId": 7,
+      "name": "NEW TEXT.txt",
+      "type": "txt",
+      "size": "0",
+      "path": "\\\\NEW FOLDER(1)\\NEW TEXT.txt",
+      "modifiedTime": "2023-05-28T14:37:21.7520569+08:00",
+      "indexTable": {
+        "$id": "34",
+        "dataIdxList": [],
+        "idxIdxList": []
+      }
+    }
+  },
+  "8": {
+    "$id": "35",
+    "symFCB": {
+      "$ref": "9"
+    },
+    "basicFCB": {
+      "$id": "36",
+      "fileId": 8,
+      "name": "NEW TEXT(1).txt",
+      "type": "txt",
+      "size": "0",
+      "path": "\\\\NEW FOLDER(1)\\NEW TEXT(1).txt",
+      "modifiedTime": "2023-05-28T14:37:21.9413344+08:00",
+      "indexTable": {
+        "$id": "37",
+        "dataIdxList": [],
+        "idxIdxList": []
+      }
+    }
+  }
+}

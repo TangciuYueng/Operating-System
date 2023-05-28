@@ -1,0 +1,100 @@
+{
+  "$id": "1",
+  "fileName": null,
+  "fileType": "folder",
+  "fileId": 0,
+  "father": null,
+  "children": [
+    {
+      "$id": "2",
+      "fileName": "NEW FOLDER",
+      "fileType": "folder",
+      "fileId": 1,
+      "father": {
+        "$ref": "1"
+      },
+      "children": []
+    },
+    {
+      "$id": "3",
+      "fileName": "NEW FOLDER(1)",
+      "fileType": "folder",
+      "fileId": 2,
+      "father": {
+        "$ref": "1"
+      },
+      "children": []
+    },
+    {
+      "$id": "4",
+      "fileName": "NEW FOLDER(2)",
+      "fileType": "folder",
+      "fileId": 3,
+      "father": {
+        "$ref": "1"
+      },
+      "children": [
+        {
+          "$id": "5",
+          "fileName": "NEW FOLDER",
+          "fileType": "folder",
+          "fileId": 6,
+          "father": {
+            "$ref": "4"
+          },
+          "children": []
+        },
+        {
+          "$id": "6",
+          "fileName": "NEW FOLDER(1)",
+          "fileType": "folder",
+          "fileId": 7,
+          "father": {
+            "$ref": "4"
+          },
+          "children": []
+        },
+        {
+          "$id": "7",
+          "fileName": "NEW TEXT.txt",
+          "fileType": "txt",
+          "fileId": 8,
+          "father": {
+            "$ref": "4"
+          },
+          "children": []
+        },
+        {
+          "$id": "8",
+          "fileName": "NEW TEXT(1).txt",
+          "fileType": "txt",
+          "fileId": 9,
+          "father": {
+            "$ref": "4"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "$id": "9",
+      "fileName": "NEW TEXT.txt",
+      "fileType": "txt",
+      "fileId": 4,
+      "father": {
+        "$ref": "1"
+      },
+      "children": []
+    },
+    {
+      "$id": "10",
+      "fileName": "NEW TEXT(1).txt",
+      "fileType": "txt",
+      "fileId": 5,
+      "father": {
+        "$ref": "1"
+      },
+      "children": []
+    }
+  ]
+}

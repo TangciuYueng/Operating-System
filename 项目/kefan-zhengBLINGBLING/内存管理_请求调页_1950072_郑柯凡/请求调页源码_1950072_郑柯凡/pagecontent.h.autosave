@@ -1,0 +1,13 @@
+#ifndef PAGECONTENT_H
+#define PAGECONTENT_H
+#include<string.h>
+
+class PageContent
+{
+private:
+    int content[35];
+public:
+    PageContent();
+};
+
+#endif // PAGECONTENT_H
