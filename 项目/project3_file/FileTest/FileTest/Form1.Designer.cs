@@ -30,6 +30,8 @@ namespace FileTest
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,6 +49,7 @@ namespace FileTest
             this.btn_return = new System.Windows.Forms.Button();
             this.btn_forward = new System.Windows.Forms.Button();
             this.treeView = new System.Windows.Forms.TreeView();
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.listView = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
@@ -87,7 +90,7 @@ namespace FileTest
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
             this.loadToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(270, 40);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(255, 40);
             this.loadToolStripMenuItem.Text = "load";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
@@ -95,7 +98,7 @@ namespace FileTest
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(270, 40);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(255, 40);
             this.saveToolStripMenuItem.Text = "save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -212,10 +215,21 @@ namespace FileTest
             // 
             // treeView
             // 
+            this.treeView.ImageIndex = 0;
+            this.treeView.ImageList = this.imageList;
             this.treeView.Location = new System.Drawing.Point(12, 92);
             this.treeView.Name = "treeView";
+            this.treeView.SelectedImageIndex = 0;
             this.treeView.Size = new System.Drawing.Size(244, 560);
             this.treeView.TabIndex = 6;
+            // 
+            // imageList
+            // 
+            this.imageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
+            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList.Images.SetKeyName(0, "folder.jpg");
+            this.imageList.Images.SetKeyName(1, "txt.jpg");
             // 
             // listView
             // 
@@ -229,9 +243,12 @@ namespace FileTest
             this.listView.FullRowSelect = true;
             this.listView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listView.HideSelection = false;
+            this.listView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1});
             this.listView.Location = new System.Drawing.Point(263, 92);
             this.listView.Name = "listView";
             this.listView.Size = new System.Drawing.Size(983, 560);
+            this.listView.SmallImageList = this.imageList;
             this.listView.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listView.TabIndex = 7;
             this.listView.UseCompatibleStateImageBehavior = false;
@@ -302,6 +319,7 @@ namespace FileTest
             this.Controls.Add(this.cur_path_text);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
+            this.MinimizeBox = false;
             this.Name = "MainWindow";
             this.Text = "FILE MANAGEMENT";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
@@ -342,6 +360,7 @@ namespace FileTest
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem1;
+        private System.Windows.Forms.ImageList imageList;
     }
 }
 

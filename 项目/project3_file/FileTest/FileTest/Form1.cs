@@ -16,6 +16,8 @@ namespace FileTest
 {
     public partial class MainWindow : Form
     {
+        // 修改标识
+        bool changed;
         // 当前symfcb
         public SymFCB curSymFCB;
         // 根symfcb
@@ -41,6 +43,7 @@ namespace FileTest
             manager = new Manager();
             fileDict = new Dictionary<int, Pair>();
             fileStack = new Stack<SymFCB>();
+            changed = false;
 
             //BasicFCB rootBasicFCB = new BasicFCB(rootSymFCB, "ROOT");
             //CreateMap(rootSymFCB, rootBasicFCB);
@@ -94,6 +97,12 @@ namespace FileTest
             foreach (SymFCB child in curFCB.children)
             {
                 TreeNode childNode = new TreeNode(child.fileName);
+                // 如果是txt设置第二个图标 默认是第一个
+                if (child.fileType == "txt")
+                {
+                    childNode.ImageIndex = 1;
+                    childNode.SelectedImageIndex = 1;
+                }
                 CreateTreeView(childNode, child);
                 rootNode.Nodes.Add(childNode);
             }
@@ -112,7 +121,7 @@ namespace FileTest
                     file.modifiedTime.ToString(),
                     file.type,
                     file.size
-                });
+                }, file.type == "folder" ? 0: 1);
 
                 listTable[file.fileId] = item;
                 // 加入列表视图
@@ -192,8 +201,10 @@ namespace FileTest
             MessageBox.Show("FILE NOT FOUND");
             return -1;
         }
+        // 新建文件
         private void txtToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            changed = true;
             string fileName = CheckSameName("NEW TEXT", "txt");
             string fatherPath;
             // 添加到当前目录下的孩子中
@@ -210,9 +221,10 @@ namespace FileTest
             CreateMap(newSymFCB, newFile);
             UpdateView();
         }
-
+        // 新建文件夹
         private void folderToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            changed = true;
             string fileName = CheckSameName("NEW FOLDER");
             string fatherPath;
             // 添加到当前目录下的孩子中
@@ -237,13 +249,13 @@ namespace FileTest
             curSymFCB = rootSymFCB;
             manager = new Manager();
             fileStack = new Stack<SymFCB>();
-
+            changed = false;
             //BasicFCB rootBasicFCB = new BasicFCB(rootSymFCB, "ROOT");
             //CreateMap(rootSymFCB, rootBasicFCB);
 
             InitializeView();
         }
-
+        // 删除文件点击响应
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (listView.SelectedItems.Count == 0)
@@ -267,7 +279,7 @@ namespace FileTest
                 UpdateView();
             }
         }
-
+        // 打开文件点击响应
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (listView.SelectedItems.Count != 1)
@@ -307,9 +319,7 @@ namespace FileTest
                 txtInputWindow.CallBack = UpdateView;
             }
         }
-
-        
-
+        // 双击列表视图
         private void listView_DoubleClick(object sender, EventArgs e)
         {
             // 选中的不是一个就不响应
@@ -323,7 +333,7 @@ namespace FileTest
             // 打开文件操作
             OpenFile(fileId);
         }
-
+        // 
         private void MainWindow_Load(object sender, EventArgs e)
         {
 
@@ -452,11 +462,11 @@ namespace FileTest
 
             var rootSymFCBStream = new FileStream(Path.Combine(curPath, "rootSymFCB.dat"), FileMode.Create);
             bf.Serialize(rootSymFCBStream, rootSymFCB);
-            fileDictStream.Close();
+            rootSymFCBStream.Close();
 
             var managerStream = new FileStream(Path.Combine(curPath, "manager.dat"), FileMode.Create);
             bf.Serialize(managerStream, manager);
-            fileDictStream.Close();
+            managerStream.Close();
             // 提示消息
             MessageBox.Show("Save Successfully\n" + curPath, "Tip");
         }   
@@ -492,11 +502,11 @@ namespace FileTest
 
             var rootSymFCBStream = new FileStream(Path.Combine(curPath, "rootSymFCB.dat"), FileMode.Open, FileAccess.Read, FileShare.Read);
             rootSymFCB = bf.Deserialize(rootSymFCBStream) as SymFCB;
-            fileDictStream.Close();
+            rootSymFCBStream.Close();
 
             var managerStream = new FileStream(Path.Combine(curPath, "manager.dat"), FileMode.Open, FileAccess.Read, FileShare.Read);
             manager = bf.Deserialize(managerStream) as Manager;
-            fileDictStream.Close();
+            managerStream.Close();
 
             // 初始化
             InitializeView();
@@ -513,7 +523,7 @@ namespace FileTest
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             // 关闭窗口时弹出消息窗口是否保存
-            if (MessageBox.Show("Do you want save the data?", "Tip", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (changed && MessageBox.Show("Do you want save the data?", "Tip", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 SaveData();
             }

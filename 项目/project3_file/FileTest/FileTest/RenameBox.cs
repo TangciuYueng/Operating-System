@@ -52,5 +52,31 @@ namespace FileTest
                 MyCallBack();
             }
         }
+
+        private void btn_Yes_Click(object sender, EventArgs e)
+        {
+            // 点击确定直接修改并关闭窗口
+            bf.modifiedTime = DateTime.Now;
+            bf.name = textBox.Text;
+            MyCallBack();
+            // 将修改为设置为false标识修改完成已经不需要再消息窗口弹出
+            changed = false;
+            // 关闭窗口
+            Close();
+        }
+
+        private void btn_No_Click(object sender, EventArgs e)
+        {
+            // 点击取消直接关闭窗口
+            Close();
+        }
+        // 判断回车与确定按钮绑定
+        private void RenameBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btn_Yes_Click(sender, e);
+            }
+        }
     }
 }

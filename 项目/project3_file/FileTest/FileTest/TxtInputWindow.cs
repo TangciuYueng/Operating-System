@@ -109,7 +109,8 @@ namespace FileTest
             //    return;
             //}
             SymFCB curSf = sf.father;
-            while (curSf.fileId != 0)
+            // 找到根节点停止
+            while (fileDict.ContainsKey(curSf.fileId))
             {
                 BasicFCB curBf = fileDict[curSf.fileId].basicFCB;
                 curBf.modifiedTime = DateTime.Now;

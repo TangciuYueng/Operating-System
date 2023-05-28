@@ -22,3 +22,15 @@ C:\TongJi\sophomore2\OperatingSystem\CourseProject\文件管理_1950072_郑柯�
 C:\TongJi\sophomore2\OperatingSystem\CourseProject\文件管理_1950072_郑柯凡\File_Management\obj\Debug\File_Management.csproj.CoreCompileInputs.cache
 C:\TongJi\sophomore2\OperatingSystem\CourseProject\文件管理_1950072_郑柯凡\File_Management\obj\Debug\File_Management.exe
 C:\TongJi\sophomore2\OperatingSystem\CourseProject\文件管理_1950072_郑柯凡\File_Management\obj\Debug\File_Management.pdb
+E:\xx\操作系统\项目\kefan-zhengBLINGBLING\文件管理_文件系统_1950072_郑柯凡\File_Management\bin\Debug\File_Management.exe.config
+E:\xx\操作系统\项目\kefan-zhengBLINGBLING\文件管理_文件系统_1950072_郑柯凡\File_Management\bin\Debug\File_Management.exe
+E:\xx\操作系统\项目\kefan-zhengBLINGBLING\文件管理_文件系统_1950072_郑柯凡\File_Management\bin\Debug\File_Management.pdb
+E:\xx\操作系统\项目\kefan-zhengBLINGBLING\文件管理_文件系统_1950072_郑柯凡\File_Management\obj\Debug\File_Management.csproj.AssemblyReference.cache
+E:\xx\操作系统\项目\kefan-zhengBLINGBLING\文件管理_文件系统_1950072_郑柯凡\File_Management\obj\Debug\File_Management.FileInputBox.resources
+E:\xx\操作系统\项目\kefan-zhengBLINGBLING\文件管理_文件系统_1950072_郑柯凡\File_Management\obj\Debug\File_Management.RenameBox.resources
+E:\xx\操作系统\项目\kefan-zhengBLINGBLING\文件管理_文件系统_1950072_郑柯凡\File_Management\obj\Debug\File_Management.MainWindows.resources
+E:\xx\操作系统\项目\kefan-zhengBLINGBLING\文件管理_文件系统_1950072_郑柯凡\File_Management\obj\Debug\File_Management.Properties.Resources.resources
+E:\xx\操作系统\项目\kefan-zhengBLINGBLING\文件管理_文件系统_1950072_郑柯凡\File_Management\obj\Debug\File_Management.csproj.GenerateResource.cache
+E:\xx\操作系统\项目\kefan-zhengBLINGBLING\文件管理_文件系统_1950072_郑柯凡\File_Management\obj\Debug\File_Management.csproj.CoreCompileInputs.cache
+E:\xx\操作系统\项目\kefan-zhengBLINGBLING\文件管理_文件系统_1950072_郑柯凡\File_Management\obj\Debug\File_Management.exe
+E:\xx\操作系统\项目\kefan-zhengBLINGBLING\文件管理_文件系统_1950072_郑柯凡\File_Management\obj\Debug\File_Management.pdb
