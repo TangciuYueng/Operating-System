@@ -333,11 +333,7 @@ namespace FileTest
             // 打开文件操作
             OpenFile(fileId);
         }
-        // 
-        private void MainWindow_Load(object sender, EventArgs e)
-        {
-
-        }
+        
         // 重命名
         private void renameToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -402,9 +398,9 @@ namespace FileTest
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // 先查看当前目录下有无需要的文件 转换为文件名
-            var jsonFileList = new List<string>(Directory.GetFiles(curPath, "*.dat").Select(Path.GetFileName));
+            var jsonFileList = new List<string>(Directory.GetFiles(curPath, "*.*").Where(s => s.EndsWith(".dat") || s.EndsWith(".txt")).Select(Path.GetFileName));
             //var jsonFileList = Directory.GetFiles(curPath, "*.json").ToList();
-            string[] targetFile = new string[] { "fileDict.dat", "rootSymFCB.dat", "manager.dat" };
+            string[] targetFile = new string[] { "fileDict.dat", "rootSymFCB.dat", "manager.dat", "fileCount.txt" };
             foreach (string file in targetFile)
             {
                 // 不包含任何一个目标函数
@@ -467,6 +463,14 @@ namespace FileTest
             var managerStream = new FileStream(Path.Combine(curPath, "manager.dat"), FileMode.Create);
             bf.Serialize(managerStream, manager);
             managerStream.Close();
+
+            // int类型直接存入txt文件
+            var fileCountStream = new FileStream(Path.Combine(curPath, "fileCount.txt"), FileMode.Create, FileAccess.Write);
+            var sw = new StreamWriter(fileCountStream);
+            sw.WriteLine(SymFCB.fileCounter.ToString());
+            sw.Close();
+            fileCountStream.Close();
+
             // 提示消息
             MessageBox.Show("Save Successfully\n" + curPath, "Tip");
         }   
@@ -508,6 +512,20 @@ namespace FileTest
             manager = bf.Deserialize(managerStream) as Manager;
             managerStream.Close();
 
+            // var fileCountStream = new FileStream(Path.Combine(curPath, "fileCount.dat"), FileMode.Open, FileAccess.Read, FileShare.Read);
+            // SymFCB.fileCounter = int.Parse(bf.Deserialize(fileCountStream) as string);
+            // fileCountStream.Close();
+            string res = "";
+            using (StreamReader sr = new StreamReader(Path.Combine(curPath, "fileCount.txt")))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    res += line;
+                }
+            }
+            SymFCB.fileCounter = int.Parse(res);
+
             // 初始化
             InitializeView();
             MessageBox.Show("Load successfully", "Tip");
@@ -527,6 +545,12 @@ namespace FileTest
             {
                 SaveData();
             }
+        }
+        // 关于信息
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox aboutBox = new AboutBox();
+            aboutBox.Show();
         }
     }
 }
