@@ -137,8 +137,7 @@ namespace FileTest
         // 检查是否重名
         private string CheckSameName(string fileName, string ext="")
         {
-            // 位向量记录结尾数字是否存在
-            // BitArray sameNameFile = new BitArray(curSymFCB.children.Count + 1, false);
+            // 列表记录同名的共多少个
             List<int> sameNameFile = new List<int>();
             // 在当前目录下找是否有重名
             foreach (SymFCB child in curSymFCB.children)
@@ -266,6 +265,7 @@ namespace FileTest
                 MessageBox.Show("PLEASE SELECT A FILE OR  FOLDER");
                 return;
             }
+            changed = true;
             // 找到每个item对应的fileId，从而找到对应数据块、索引块的索引
             foreach (ListViewItem item in listView.SelectedItems)
             {
@@ -287,7 +287,7 @@ namespace FileTest
         {
             if (listView.SelectedItems.Count != 1)
             {
-                MessageBox.Show("请选择一个对象");
+                MessageBox.Show("PLEASE SELECT A FILE OR  FOLDER");
                 return;
             }
             ListViewItem curItem = listView.SelectedItems[0];
@@ -345,11 +345,12 @@ namespace FileTest
             {
                 return;
             }
+            changed = true;
             ListViewItem curItem = listView.SelectedItems[0];
             int fileId = GetFileId(curItem);
             SymFCB sf = fileDict[fileId].symFCB;
             BasicFCB bf = fileDict[fileId].basicFCB;
-            RenameBox renameBox = new RenameBox(sf, bf);
+            RenameBox renameBox = new RenameBox(sf, bf, curSymFCB);
             renameBox.Show();
             renameBox.CallBack = UpdateView;
         }
@@ -455,24 +456,43 @@ namespace FileTest
             */
             BinaryFormatter bf = new BinaryFormatter();
 
-            var fileDictStream = new FileStream(Path.Combine(curPath, "fileDict.dat"), FileMode.Create);
-            bf.Serialize(fileDictStream, fileDict);
-            fileDictStream.Close();
+            // var fileDictStream = new FileStream(Path.Combine(curPath, "fileDict.dat"), FileMode.Create);
+            // bf.Serialize(fileDictStream, fileDict);
+            // fileDictStream.Close();
+            using (var fileDictStream = new FileStream(Path.Combine(curPath, "fileDict.dat"), FileMode.Create))
+            {
+                bf.Serialize(fileDictStream, fileDict);
+            }
 
-            var rootSymFCBStream = new FileStream(Path.Combine(curPath, "rootSymFCB.dat"), FileMode.Create);
-            bf.Serialize(rootSymFCBStream, rootSymFCB);
-            rootSymFCBStream.Close();
+            // var rootSymFCBStream = new FileStream(Path.Combine(curPath, "rootSymFCB.dat"), FileMode.Create);
+            // bf.Serialize(rootSymFCBStream, rootSymFCB);
+            // rootSymFCBStream.Close();
+            using (var rootSymFCBStream = new FileStream(Path.Combine(curPath, "rootSymFCB.dat"), FileMode.Create))
+            {
+                bf.Serialize(rootSymFCBStream, rootSymFCB);
+            }
 
-            var managerStream = new FileStream(Path.Combine(curPath, "manager.dat"), FileMode.Create);
-            bf.Serialize(managerStream, manager);
-            managerStream.Close();
+            // var managerStream = new FileStream(Path.Combine(curPath, "manager.dat"), FileMode.Create);
+            // bf.Serialize(managerStream, manager);
+            // managerStream.Close();
+            using (var managerStream = new FileStream(Path.Combine(curPath, "manager.dat"), FileMode.Create))
+            {
+                bf.Serialize(managerStream, manager);
+            }
 
             // int类型直接存入txt文件
-            var fileCountStream = new FileStream(Path.Combine(curPath, "fileCount.txt"), FileMode.Create, FileAccess.Write);
-            var sw = new StreamWriter(fileCountStream);
-            sw.WriteLine(SymFCB.fileCounter.ToString());
-            sw.Close();
-            fileCountStream.Close();
+            // var fileCountStream = new FileStream(Path.Combine(curPath, "fileCount.txt"), FileMode.Create, FileAccess.Write);
+            // var sw = new StreamWriter(fileCountStream);
+            // sw.WriteLine(SymFCB.fileCounter.ToString());
+            // sw.Close();
+            // fileCountStream.Close();
+            using (var fileCountStream = new FileStream(Path.Combine(curPath, "fileCount.txt"), FileMode.Create, FileAccess.Write))
+            {
+                using (var sw = new StreamWriter(fileCountStream))
+                {
+                    sw.WriteLine(SymFCB.fileCounter.ToString());
+                }
+            }
 
             // 提示消息
             MessageBox.Show("Save Successfully\n" + curPath, "Tip");
@@ -503,17 +523,29 @@ namespace FileTest
 
             BinaryFormatter bf = new BinaryFormatter();
 
-            var fileDictStream = new FileStream(Path.Combine(curPath, "fileDict.dat"), FileMode.Open, FileAccess.Read, FileShare.Read);
-            fileDict = bf.Deserialize(fileDictStream) as Dictionary<int, Pair>;
-            fileDictStream.Close();
+            // var fileDictStream = new FileStream(Path.Combine(curPath, "fileDict.dat"), FileMode.Open, FileAccess.Read, FileShare.Read);
+            // fileDict = bf.Deserialize(fileDictStream) as Dictionary<int, Pair>;
+            // fileDictStream.Close();
+            using (var fileDictStream = new FileStream(Path.Combine(curPath, "fileDict.dat"), FileMode.Open, FileAccess.Read, FileShare.Read))
+            {
+                fileDict = bf.Deserialize(fileDictStream) as Dictionary<int, Pair>;
+            }
 
-            var rootSymFCBStream = new FileStream(Path.Combine(curPath, "rootSymFCB.dat"), FileMode.Open, FileAccess.Read, FileShare.Read);
-            rootSymFCB = bf.Deserialize(rootSymFCBStream) as SymFCB;
-            rootSymFCBStream.Close();
+            // var rootSymFCBStream = new FileStream(Path.Combine(curPath, "rootSymFCB.dat"), FileMode.Open, FileAccess.Read, FileShare.Read);
+            // rootSymFCB = bf.Deserialize(rootSymFCBStream) as SymFCB;
+            // rootSymFCBStream.Close();
+            using (var rootSymFCBStream = new FileStream(Path.Combine(curPath, "rootSymFCB.dat"), FileMode.Open, FileAccess.Read, FileShare.Read))
+            {
+                rootSymFCB = bf.Deserialize(rootSymFCBStream) as SymFCB;
+            }
 
-            var managerStream = new FileStream(Path.Combine(curPath, "manager.dat"), FileMode.Open, FileAccess.Read, FileShare.Read);
-            manager = bf.Deserialize(managerStream) as Manager;
-            managerStream.Close();
+            // var managerStream = new FileStream(Path.Combine(curPath, "manager.dat"), FileMode.Open, FileAccess.Read, FileShare.Read);
+            // manager = bf.Deserialize(managerStream) as Manager;
+            // managerStream.Close();
+            using (var managerStream = new FileStream(Path.Combine(curPath, "manager.dat"), FileMode.Open, FileAccess.Read, FileShare.Read))
+            {
+                manager = bf.Deserialize(managerStream) as Manager;
+            }
 
             // var fileCountStream = new FileStream(Path.Combine(curPath, "fileCount.dat"), FileMode.Open, FileAccess.Read, FileShare.Read);
             // SymFCB.fileCounter = int.Parse(bf.Deserialize(fileCountStream) as string);

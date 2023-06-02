@@ -59,12 +59,16 @@ namespace FileTest
             this.openToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.folderToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
             // 
+            this.menuStrip.BackColor = System.Drawing.SystemColors.Window;
             this.menuStrip.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -88,17 +92,19 @@ namespace FileTest
             // 
             // loadToolStripMenuItem
             // 
+            this.loadToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loadToolStripMenuItem.Image")));
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
             this.loadToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(255, 40);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(270, 40);
             this.loadToolStripMenuItem.Text = "load";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
+            this.saveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripMenuItem.Image")));
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(255, 40);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(270, 40);
             this.saveToolStripMenuItem.Text = "save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -119,12 +125,14 @@ namespace FileTest
             this.newToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.txtToolStripMenuItem,
             this.folderToolStripMenuItem});
+            this.newToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripMenuItem.Image")));
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.Size = new System.Drawing.Size(293, 40);
             this.newToolStripMenuItem.Text = "new";
             // 
             // txtToolStripMenuItem
             // 
+            this.txtToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("txtToolStripMenuItem.Image")));
             this.txtToolStripMenuItem.Name = "txtToolStripMenuItem";
             this.txtToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
             this.txtToolStripMenuItem.Size = new System.Drawing.Size(270, 40);
@@ -133,6 +141,7 @@ namespace FileTest
             // 
             // folderToolStripMenuItem
             // 
+            this.folderToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("folderToolStripMenuItem.Image")));
             this.folderToolStripMenuItem.Name = "folderToolStripMenuItem";
             this.folderToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
             this.folderToolStripMenuItem.Size = new System.Drawing.Size(270, 40);
@@ -141,6 +150,7 @@ namespace FileTest
             // 
             // openToolStripMenuItem
             // 
+            this.openToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripMenuItem.Image")));
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.openToolStripMenuItem.Size = new System.Drawing.Size(293, 40);
@@ -149,6 +159,7 @@ namespace FileTest
             // 
             // deleteToolStripMenuItem
             // 
+            this.deleteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripMenuItem.Image")));
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(293, 40);
@@ -157,14 +168,16 @@ namespace FileTest
             // 
             // formatToolStripMenuItem
             // 
+            this.formatToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("formatToolStripMenuItem.Image")));
             this.formatToolStripMenuItem.Name = "formatToolStripMenuItem";
             this.formatToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
             this.formatToolStripMenuItem.Size = new System.Drawing.Size(293, 40);
-            this.formatToolStripMenuItem.Text = "format";
+            this.formatToolStripMenuItem.Text = "reset";
             this.formatToolStripMenuItem.Click += new System.EventHandler(this.formatToolStripMenuItem_Click);
             // 
             // renameToolStripMenuItem1
             // 
+            this.renameToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("renameToolStripMenuItem1.Image")));
             this.renameToolStripMenuItem1.Name = "renameToolStripMenuItem1";
             this.renameToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
             this.renameToolStripMenuItem1.Size = new System.Drawing.Size(293, 40);
@@ -180,6 +193,7 @@ namespace FileTest
             // 
             // cur_path_text
             // 
+            this.cur_path_text.BackColor = System.Drawing.SystemColors.Window;
             this.cur_path_text.CausesValidation = false;
             this.cur_path_text.Cursor = System.Windows.Forms.Cursors.Default;
             this.cur_path_text.Font = new System.Drawing.Font("Microsoft YaHei UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -192,6 +206,7 @@ namespace FileTest
             // 
             // btn_return
             // 
+            this.btn_return.BackColor = System.Drawing.SystemColors.Window;
             this.btn_return.Enabled = false;
             this.btn_return.Font = new System.Drawing.Font("Microsoft YaHei UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_return.Location = new System.Drawing.Point(12, 42);
@@ -199,11 +214,12 @@ namespace FileTest
             this.btn_return.Size = new System.Drawing.Size(60, 44);
             this.btn_return.TabIndex = 2;
             this.btn_return.Text = "<-";
-            this.btn_return.UseVisualStyleBackColor = true;
+            this.btn_return.UseVisualStyleBackColor = false;
             this.btn_return.Click += new System.EventHandler(this.btn_return_Click);
             // 
             // btn_forward
             // 
+            this.btn_forward.BackColor = System.Drawing.SystemColors.Window;
             this.btn_forward.Enabled = false;
             this.btn_forward.Font = new System.Drawing.Font("Microsoft YaHei UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_forward.Location = new System.Drawing.Point(78, 42);
@@ -211,7 +227,7 @@ namespace FileTest
             this.btn_forward.Size = new System.Drawing.Size(60, 44);
             this.btn_forward.TabIndex = 5;
             this.btn_forward.Text = "->";
-            this.btn_forward.UseVisualStyleBackColor = true;
+            this.btn_forward.UseVisualStyleBackColor = false;
             this.btn_forward.Click += new System.EventHandler(this.btn_forward_Click);
             // 
             // treeView
@@ -229,8 +245,8 @@ namespace FileTest
             this.imageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
             this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList.Images.SetKeyName(0, "folder.jpg");
-            this.imageList.Images.SetKeyName(1, "txt.jpg");
+            this.imageList.Images.SetKeyName(0, "folder-3-fill.png");
+            this.imageList.Images.SetKeyName(1, "file-3-fill.png");
             // 
             // listView
             // 
@@ -259,7 +275,7 @@ namespace FileTest
             // columnHeader1
             // 
             this.columnHeader1.Text = "FILE NAME";
-            this.columnHeader1.Width = 240;
+            this.columnHeader1.Width = 360;
             // 
             // columnHeader2
             // 
@@ -274,7 +290,7 @@ namespace FileTest
             // columnHeader4
             // 
             this.columnHeader4.Text = "SIZE";
-            this.columnHeader4.Width = 240;
+            this.columnHeader4.Width = 120;
             // 
             // contextMenuStrip
             // 
@@ -283,35 +299,66 @@ namespace FileTest
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem1,
             this.deleteToolStripMenuItem1,
-            this.renameToolStripMenuItem});
+            this.renameToolStripMenuItem,
+            this.newToolStripMenuItem1});
             this.contextMenuStrip.Name = "contextMenuStrip1";
-            this.contextMenuStrip.Size = new System.Drawing.Size(176, 118);
+            this.contextMenuStrip.Size = new System.Drawing.Size(184, 156);
             // 
             // openToolStripMenuItem1
             // 
+            this.openToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripMenuItem1.Image")));
             this.openToolStripMenuItem1.Name = "openToolStripMenuItem1";
-            this.openToolStripMenuItem1.Size = new System.Drawing.Size(175, 38);
+            this.openToolStripMenuItem1.Size = new System.Drawing.Size(183, 38);
             this.openToolStripMenuItem1.Text = "open";
             this.openToolStripMenuItem1.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem1
             // 
+            this.deleteToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripMenuItem1.Image")));
             this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
-            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(175, 38);
+            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(183, 38);
             this.deleteToolStripMenuItem1.Text = "delete";
             this.deleteToolStripMenuItem1.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // renameToolStripMenuItem
             // 
+            this.renameToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("renameToolStripMenuItem.Image")));
             this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
-            this.renameToolStripMenuItem.Size = new System.Drawing.Size(175, 38);
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(183, 38);
             this.renameToolStripMenuItem.Text = "rename";
             this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem1_Click);
+            // 
+            // newToolStripMenuItem1
+            // 
+            this.newToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.folderToolStripMenuItem1,
+            this.txtToolStripMenuItem1});
+            this.newToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripMenuItem1.Image")));
+            this.newToolStripMenuItem1.Name = "newToolStripMenuItem1";
+            this.newToolStripMenuItem1.Size = new System.Drawing.Size(183, 38);
+            this.newToolStripMenuItem1.Text = "new";
+            // 
+            // folderToolStripMenuItem1
+            // 
+            this.folderToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("folderToolStripMenuItem1.Image")));
+            this.folderToolStripMenuItem1.Name = "folderToolStripMenuItem1";
+            this.folderToolStripMenuItem1.Size = new System.Drawing.Size(270, 40);
+            this.folderToolStripMenuItem1.Text = "folder";
+            this.folderToolStripMenuItem1.Click += new System.EventHandler(this.folderToolStripMenuItem_Click);
+            // 
+            // txtToolStripMenuItem1
+            // 
+            this.txtToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("txtToolStripMenuItem1.Image")));
+            this.txtToolStripMenuItem1.Name = "txtToolStripMenuItem1";
+            this.txtToolStripMenuItem1.Size = new System.Drawing.Size(270, 40);
+            this.txtToolStripMenuItem1.Text = "txt";
+            this.txtToolStripMenuItem1.Click += new System.EventHandler(this.txtToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1258, 664);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.treeView);
@@ -363,6 +410,9 @@ namespace FileTest
         private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem1;
         private System.Windows.Forms.ImageList imageList;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem folderToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem txtToolStripMenuItem1;
     }
 }
 
