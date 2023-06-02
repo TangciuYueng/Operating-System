@@ -1,0 +1,6 @@
+E:\xx\操作系统\项目\project3_file\FileTest\FileTest\bin\Release\net5.0-windows\publish\FileTest.exe
+E:\xx\操作系统\项目\project3_file\FileTest\FileTest\bin\Release\net5.0-windows\publish\FileTest.dll
+E:\xx\操作系统\项目\project3_file\FileTest\FileTest\bin\Release\net5.0-windows\publish\FileTest.deps.json
+E:\xx\操作系统\项目\project3_file\FileTest\FileTest\bin\Release\net5.0-windows\publish\FileTest.runtimeconfig.json
+E:\xx\操作系统\项目\project3_file\FileTest\FileTest\bin\Release\net5.0-windows\publish\FileTest.pdb
+E:\xx\操作系统\项目\project3_file\FileTest\FileTest\bin\Release\net5.0-windows\publish\Newtonsoft.Json.dll

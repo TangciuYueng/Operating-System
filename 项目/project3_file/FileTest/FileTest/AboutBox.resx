@@ -57,4 +57,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label1.Text" xml:space="preserve">
+    <value>这是一个文件管理模拟程序
+1. 通过右键选择新建文件或文件夹
+2. 通过菜单栏载入方式载入历史数据
+3. 通过快捷键方式进行操作
+    3.1. Ctrl + L载入历史数据
+    3.2. Ctrl + S保存数据
+    3.3. Ctrl + T新建文件
+    3.4. Ctrl + F新建文件夹
+    3.5. Ctrl + O打开选中文件或文件夹
+    3.6. Ctrl + D删除选中文件或文件夹
+    3.7. Ctrl + R重命名选中文件夹
+    3.8. Ctrl + M格式化
+4. 前进后退按钮进入父目录或子目录</value>
+  </data>
 </root>

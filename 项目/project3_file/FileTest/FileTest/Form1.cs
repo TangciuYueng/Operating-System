@@ -28,13 +28,13 @@ namespace FileTest
         // 管理
         public Manager manager;
         // 当前路径
-        public string curPath = Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
+        public string curPath = Directory.GetCurrentDirectory();
         // 文件显示窗口
         private Dictionary<int, ListViewItem> listTable;
         // 文件树根结点
-        TreeNode rootNode;
+        private TreeNode rootNode;
         // 保存前进方向
-        Stack<SymFCB> fileStack;
+        private Stack<SymFCB> fileStack;
 
         public MainWindow()
         {
@@ -194,7 +194,7 @@ namespace FileTest
         {
             foreach (var kv in listTable)
             {
-                if (kv.Value.Equals(item))
+                if (kv.Value.Text == item.Text)
                 {
                     return kv.Key;
                 }
@@ -278,9 +278,9 @@ namespace FileTest
                 curSymFCB.removeChild(fileDict[fileId].symFCB);
                 // 映射表中移除
                 fileDict.Remove(fileId);
-                // 更新视图
-                UpdateView();
             }
+            // 更新视图
+            UpdateView();
         }
         // 打开文件点击响应
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -318,8 +318,8 @@ namespace FileTest
             else if (sf.fileType == "txt")
             {
                 TxtInputWindow txtInputWindow = new TxtInputWindow(sf, bf, fileDict, manager, sizeBefore);
-                txtInputWindow.Show();
                 txtInputWindow.CallBack = UpdateView;
+                txtInputWindow.Show();
             }
         }
         // 双击列表视图
@@ -351,8 +351,8 @@ namespace FileTest
             SymFCB sf = fileDict[fileId].symFCB;
             BasicFCB bf = fileDict[fileId].basicFCB;
             RenameBox renameBox = new RenameBox(sf, bf, curSymFCB);
-            renameBox.Show();
             renameBox.CallBack = UpdateView;
+            renameBox.Show();
         }
         // 返回上一级按钮
         private void btn_return_Click(object sender, EventArgs e)
@@ -426,6 +426,7 @@ namespace FileTest
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveData();
+            changed = false;
         }
         // 保存数据
         private void SaveData()

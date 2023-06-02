@@ -67,6 +67,7 @@ namespace FileTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(288, 114);
             this.Controls.Add(this.btn_No);
             this.Controls.Add(this.btn_Yes);

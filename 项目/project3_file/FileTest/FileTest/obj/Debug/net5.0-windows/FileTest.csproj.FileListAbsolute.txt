@@ -21,3 +21,4 @@ E:\xx\操作系统\项目\project3_file\FileTest\FileTest\bin\Debug\net5.0-windo
 E:\xx\操作系统\项目\project3_file\FileTest\FileTest\obj\Debug\net5.0-windows\FileTest.csproj.CopyComplete
 E:\xx\操作系统\项目\project3_file\FileTest\FileTest\obj\Debug\net5.0-windows\FileTest.AboutBox.resources
 E:\xx\操作系统\项目\project3_file\FileTest\FileTest\obj\Debug\net5.0-windows\FileTest.Properties.Resources.resources
+E:\xx\操作系统\项目\project3_file\FileTest\FileTest\obj\Debug\net5.0-windows\FileTest.csproj.AssemblyReference.cache

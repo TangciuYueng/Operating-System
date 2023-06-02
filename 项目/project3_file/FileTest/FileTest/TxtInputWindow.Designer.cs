@@ -46,6 +46,7 @@ namespace FileTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1258, 664);
             this.Controls.Add(this.textBox);
             this.Name = "TxtInputWindow";

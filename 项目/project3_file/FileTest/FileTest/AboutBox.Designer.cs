@@ -29,6 +29,7 @@ namespace FileTest
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutBox));
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -38,18 +39,19 @@ namespace FileTest
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(41, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(377, 40);
+            this.label1.Size = new System.Drawing.Size(538, 520);
             this.label1.TabIndex = 0;
-            this.label1.Text = "这是一个文件管理模拟程序";
+            this.label1.Text = resources.GetString("label1.Text");
             // 
             // AboutBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 64);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(608, 574);
             this.Controls.Add(this.label1);
-            this.MaximumSize = new System.Drawing.Size(500, 120);
-            this.MinimumSize = new System.Drawing.Size(500, 120);
+            this.MaximumSize = new System.Drawing.Size(630, 630);
+            this.MinimumSize = new System.Drawing.Size(630, 630);
             this.Name = "AboutBox";
             this.Text = "AboutBox";
             this.ResumeLayout(false);

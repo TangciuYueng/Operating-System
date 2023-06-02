@@ -21,3 +21,4 @@ E:\xx\操作系统\项目\project3_file\FileTest\FileTest\obj\Release\net5.0-win
 E:\xx\操作系统\项目\project3_file\FileTest\FileTest\obj\Release\net5.0-windows\ref\FileTest.dll
 E:\xx\操作系统\项目\project3_file\FileTest\FileTest\obj\Release\net5.0-windows\FileTest.pdb
 E:\xx\操作系统\项目\project3_file\FileTest\FileTest\obj\Release\net5.0-windows\FileTest.genruntimeconfig.cache
+E:\xx\操作系统\项目\project3_file\FileTest\FileTest\obj\Release\net5.0-windows\FileTest.csproj.AssemblyReference.cache

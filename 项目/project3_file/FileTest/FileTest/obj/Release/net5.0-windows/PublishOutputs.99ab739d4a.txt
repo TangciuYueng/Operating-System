@@ -1,0 +1,6 @@
+E:\xx\操作系统\项目\project3_file\publish\FileTest.exe
+E:\xx\操作系统\项目\project3_file\publish\FileTest.dll
+E:\xx\操作系统\项目\project3_file\publish\FileTest.deps.json
+E:\xx\操作系统\项目\project3_file\publish\FileTest.runtimeconfig.json
+E:\xx\操作系统\项目\project3_file\publish\FileTest.pdb
+E:\xx\操作系统\项目\project3_file\publish\Newtonsoft.Json.dll
