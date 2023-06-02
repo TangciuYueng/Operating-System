@@ -11,6 +11,7 @@ using FileTest.MyClass;
 using Newtonsoft.Json;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Collections;
 
 namespace FileTest
 {
@@ -59,7 +60,6 @@ namespace FileTest
             //初始化目录树
             InitializeTreeView();
             // 得到根
-            //rootSymFCB = fileDict[0].symFCB;
             curSymFCB = rootSymFCB;
             cur_path_text.Text = "> ROOT\\";
         }
@@ -137,53 +137,56 @@ namespace FileTest
         // 检查是否重名
         private string CheckSameName(string fileName, string ext="")
         {
-            int counter = 0;
-            // 记录相同文件名括号中的数字有什么
-            List<int> nums = new List<int>();
+            // 位向量记录结尾数字是否存在
+            // BitArray sameNameFile = new BitArray(curSymFCB.children.Count + 1, false);
+            List<int> sameNameFile = new List<int>();
             // 在当前目录下找是否有重名
             foreach (SymFCB child in curSymFCB.children)
             {
-                if (child.fileName.StartsWith(fileName))
+                // 文件类型不同
+                if (!((child.fileType == "folder" && ext == "") || (child.fileType == ext)))
                 {
-                    ++counter;
-                    // 同时获得当前目录下文件后面的数字
-                    /*
-                    Match match = Regex.Match(child.fileName, @"\(\d+\)");
-                    match = Regex.Match(match.Value, @"\d+");
-                    int num;
-                    if (int.TryParse(match.Value, out num))
-                    {
-                        nums.Add(num);
-                    }
-                    */
+                    continue;
                 }
                 
+                // 去掉最后一个圆括号及其之后的内容，[^\(]* 表示任意不是左括号的字符可以出现 0 次或多次
+                string childFileName = Regex.Replace(child.fileName, @"\(\d+\)[^(\(\d+\))]*$", "");
+                // 去掉后缀
+                childFileName = Regex.Replace(childFileName, String.Format(@"\.{0}", ext), "");
+
+                if (childFileName == fileName)
+                {
+                    // 获得当前最后一个圆括号，匹配.之前的数字和圆括号
+                    Match match1;
+                    if (child.fileType == "folder")
+                        match1 = Regex.Match(child.fileName, @"\(\d+\)$", RegexOptions.RightToLeft);
+                    else
+                        match1 = Regex.Match(child.fileName, @"\(\d+\)\.", RegexOptions.RightToLeft);
+                    // 没有匹配的第0个
+                    if (!match1.Success)
+                    {
+                        sameNameFile.Add(0);
+                        continue;
+                    }
+                    // 获取括号中的数字
+                    Match match2 = Regex.Match(match1.Value, @"\d+");
+                    // 数字转换为下标
+                    int idx = int.Parse(match2.Value);
+                    // 标记为true
+                    sameNameFile.Add(idx);
+                }
             }
             // 出现重名
-            if (counter > 0)
+            for (int i = 0; i < curSymFCB.children.Count + 1; ++i)
             {
-                /*
-                nums.Sort();
-                // 出现空缺数字
-                if (nums.Count > 0 && nums[nums.Count - 1] != curSymFCB.children.Count - 1)
-                {
-                    for (int i = 1; i < nums[nums.Count - 1]; ++i)
-                    {
-                        
-                        if (!nums.Contains(i))
-                        {
-                            fileName += "(" + i.ToString() + ")";
-                            break;
-                        }
-                    }
-                }
-                else
-                {
-                    fileName += "(" + counter.ToString() + ")";
-                } 
-                */
-                fileName += "(" + counter.ToString() + ")";
+                if (sameNameFile.Contains(i))
+                    continue;
+                // 找第一个缺的数字，i == 0就不用增加
+                if (i != 0)
+                    fileName += "(" + i.ToString() + ")";
+                break;
             }
+            
             return fileName + ((ext == "") ? "" : ("." + ext));
         }
 
